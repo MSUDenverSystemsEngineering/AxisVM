@@ -144,7 +144,7 @@ Try {
 		## <Perform Post-Installation tasks here>
 		Execute-Process -Path "$envSystem32Directory\setx.exe" -Parameters "NSP_HOST 147.153.36.189" -WindowStyle "Hidden"
 		Copy-File -Path "$dirSupportFiles\AxisVM_X4_3650_NET_25.key" -Destination "$envSystemDrive\AxisVM X4"
-		If (!(Test-Path -Path $envCommonProgramFilesX86\SafeNet Sentinel\Sentinel Security Runtime\ -PathType Container)) {
+		If (!(Test-Path -Path "$envCommonProgramFilesX86\SafeNet Sentinel\Sentinel Security Runtime\" -PathType Container)) {
     	Execute-Process -Path "$dirSupportFiles\sentinel_protection_installer_768.exe"
 		}
 
