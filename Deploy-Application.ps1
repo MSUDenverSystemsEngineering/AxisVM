@@ -63,7 +63,7 @@ Try {
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
 	[string]$appScriptVersion = '2.0.0'
-	[string]$appScriptDate = '04/02/2018'
+	[string]$appScriptDate = '04/04/2018'
 	[string]$appScriptAuthor = 'Jordan Hamilton'
 	##*===============================================
 	## Variables: Install Titles (Only set here to override defaults set by the toolkit)
@@ -142,7 +142,7 @@ Try {
 		[string]$installPhase = 'Post-Installation'
 
 		## <Perform Post-Installation tasks here>
-		Execute-Process -Path "$envSystem32Directory\setx.exe" -Parameters "NSP_HOST 147.153.36.189" -WindowStyle "Hidden"
+		Execute-Process -Path "$envSystem32Directory\setx.exe" -Parameters "NSP_HOST 147.153.36.189 /m" -WindowStyle "Hidden"
 		Copy-File -Path "$dirSupportFiles\AxisVM_X4_3650_NET_25.key" -Destination "$envSystemDrive\AxisVM X4"
 		If (!(Test-Path -Path "$envCommonProgramFilesX86\SafeNet Sentinel\Sentinel Security Runtime\" -PathType Container)) {
     	Execute-Process -Path "$dirSupportFiles\sentinel_protection_installer_768.exe"
