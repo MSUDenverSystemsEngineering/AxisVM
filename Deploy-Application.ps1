@@ -58,13 +58,13 @@ Try {
 	## Variables: Application
 	[string]$appVendor = 'InterCAD'
 	[string]$appName = 'AxisVM'
-	[string]$appVersion = 'X4 Release 1g'
+	[string]$appVersion = 'X5'
 	[string]$appArch = 'x64'
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
 	[string]$appScriptVersion = '2.0.0'
-	[string]$appScriptDate = '04/06/2018'
-	[string]$appScriptAuthor = 'Jordan Hamilton'
+	[string]$appScriptDate = '7/25/2018'
+	[string]$appScriptAuthor = 'Steve Patterson'
 	##*===============================================
 	## Variables: Install Titles (Only set here to override defaults set by the toolkit)
 	[string]$installName = ''
@@ -133,7 +133,7 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-		$exitCode = Execute-Process -Path "axisvm141g_update_eu.exe" -Parameters "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /RESTARTEXITCODE=3010" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
+		$exitCode = Execute-Process -Path "axisvm_x5_install_eu.exe" -Parameters "/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /RESTARTEXITCODE=3010" -WindowStyle "Hidden" -WaitForMsiExec -PassThru
 		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
@@ -142,8 +142,8 @@ Try {
 		[string]$installPhase = 'Post-Installation'
 
 		## <Perform Post-Installation tasks here>
-		Execute-Process -Path "$envSystem32Directory\setx.exe" -Parameters "NSP_HOST 147.153.36.189 /m" -WindowStyle "Hidden"
-		Copy-File -Path "$dirSupportFiles\AxisVM_X4_3650_NET_25.key" -Destination "$envSystemDrive\AxisVM X4"
+		Execute-Process -Path "$envSystem32Directory\setx.exe" -Parameters "NSP_HOST 147.153.19.133 /m" -WindowStyle "Hidden"
+		Copy-File -Path "$dirSupportFiles\AxisVM_X5_3650_NET_25.key" -Destination "$envSystemDrive\AxisVM X5"
 
 		## Display a message at the end of the install
 		If (-not $useDefaultMsi) {}
@@ -176,8 +176,8 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		Execute-Process -Path "$envSystemDrive\AxisVM X4\unins000.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
-		Execute-Process -Path "$envSystemDrive\AxisVM X4\unins001.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
+		Execute-Process -Path "$envSystemDrive\AxisVM X5\unins000.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
+		Execute-Process -Path "$envSystemDrive\AxisVM X5\unins001.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
 
 		##*===============================================
 		##* POST-UNINSTALLATION
