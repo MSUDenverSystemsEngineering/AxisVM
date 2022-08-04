@@ -131,10 +131,28 @@ Try {
 			Execute-Process -Path "$envSystemDrive\AxisVM X4\unins000.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
 			Execute-Process -Path "$envSystemDrive\AxisVM X4\unins001.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
 		}
+		## Clean up leftovers
+		If (Test-Path "$envSystemDrive\AxisVM X4") {
+			Write-Log -Message "Deleting installation files..." -Source 'Pre-Installation' -LogType 'CMTrace'
+			Get-ChildItem -Path "$envSystemDrive\AxisVM X4" -Recurse | Remove-Item -force -recurse
+			Remove-Item "$envSystemDrive\AxisVM X4 -Force"
+		}
+		Else {
+			Write-Log -Message "AxisVM X4 installation files not detected." -Source 'Pre-Installation' -LogType 'CMTrace'
+		}
 
 		If (Test-Path -path "$envSystemDrive\AxisVM X5"){
 			Execute-Process -Path "$envSystemDrive\AxisVM X5\unins000.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
 			Execute-Process -Path "$envSystemDrive\AxisVM X5\unins001.exe" -Parameters "/SILENT" -WindowStyle "Hidden" -WaitForMsiExec
+		}
+		## Clean up leftovers
+		If (Test-Path "$envSystemDrive\AxisVM X5") {
+			Write-Log -Message "Deleting installation files..." -Source 'Pre-Installation' -LogType 'CMTrace'
+			Get-ChildItem -Path "$envSystemDrive\AxisVM X5" -Recurse | Remove-Item -force -recurse
+			Remove-Item "$envSystemDrive\AxisVM X5 -Force"
+		}
+		Else {
+			Write-Log -Message "AxisVM X5 installation files not detected." -Source 'Pre-Installation' -LogType 'CMTrace'
 		}
 
 
@@ -216,6 +234,16 @@ Try {
 		Else {
 			Write-Log -Message "License file not detected." -Source 'Uninstallation' -LogType 'CMTrace'
 		}
+		## Clean up leftovers
+		If (Test-Path "$envSystemDrive\AxisVM X6") {
+			Write-Log -Message "Deleting installation files..." -Source 'Uninstallation' -LogType 'CMTrace'
+			Get-ChildItem -Path "$envSystemDrive\AxisVM X6" -Recurse | Remove-Item -force -recurse
+			Remove-Item "$envSystemDrive\AxisVM X6 -Force"
+		}
+		Else {
+			Write-Log -Message "AxisVM X6 installation files not detected." -Source 'Uninstallation' -LogType 'CMTrace'
+		}
+
 
 		##*===============================================
 		##* POST-UNINSTALLATION
@@ -276,8 +304,8 @@ Catch {
 # SIG # Begin signature block
 # MIIU9wYJKoZIhvcNAQcCoIIU6DCCFOQCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUa4+I935+l7ef1eg2UcetaBcD
-# UZugghHXMIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUBM3PUettkl6cCGs0LuUAvGoR
+# waCgghHXMIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
 # AQwFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UECAwSR3JlYXRlciBNYW5jaGVzdGVy
 # MRAwDgYDVQQHDAdTYWxmb3JkMRowGAYDVQQKDBFDb21vZG8gQ0EgTGltaXRlZDEh
 # MB8GA1UEAwwYQUFBIENlcnRpZmljYXRlIFNlcnZpY2VzMB4XDTIxMDUyNTAwMDAw
@@ -377,13 +405,13 @@ Catch {
 # ZSBTaWduaW5nIENBIFIzNgIRAKVN33D73PFMVIK48rFyyjEwCQYFKw4DAhoFAKB4
 # MBgGCisGAQQBgjcCAQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQB
 # gjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkE
-# MRYEFD3TCe9jhhQPCOBij30U2mvF76RrMA0GCSqGSIb3DQEBAQUABIIBgCBS2uwt
-# 3oblWVGqXLTWFupgvFVUgBjFJEAwI4YjLSJcsxgY5T9R5w4nJ78V5Nhh0rGGtTdK
-# CBMNwNZ4Uss9Gbo/6DNFtIQjEVALLSmb6pWP41nxxSXe0L2gu0KFViFzVh2bsjFI
-# qwS60226HMULng6XHduajd2fulYdzPJmsH/FFq606HOcXC4f590g7zy5a0q29ziv
-# TBY7iBIPbMxTOS5NhxuPPK9jBZvxliNq788AWG/CoBhKh0LYHzA/y/kEp3g2CLV+
-# MH/TMwYJGqxyiU/oBAI0Mr5BoaR0rr/n7Iji75p42heqCvOGObM83rwsG8RjPqPK
-# i8UEwzv/FgvPJTAIHnkuvvEqFSU1TYVfYJsjRaftuTUUW+y0Ex/9nIhWLnBa3Yzx
-# XC2VRfRLLw5GO7+A0QD2Dh9hQjSdHa004EL+KOUQ5HZFzDt9ytxRQ2XGKI0ZGjNV
-# G5XKmjED/W4//yeKH2Kk/Dk7KjPUVcCq2odQX/veSlGxbt/fUYvmcpEsbw==
+# MRYEFH+KphTt1lL5jhNaA8U9/ZEyXI/1MA0GCSqGSIb3DQEBAQUABIIBgE6Gv5yB
+# 6YagqJZy+YE4ISCJcsJFwMw7BlpmZMwZ7ovWEmXGlWuDFl6E/4TWgaCyKLtGOb9N
+# OnY68myh5/fzZjqfdwgEQGPmqRl8r6o0u2xakg/ZfjyxGK+EGmin8IkjI+7SQMiz
+# uvO0APA0vD0O5RrXz5tb6UVsSgW1zuYroLJlocly584/OEDKyyjqUygouVneBIa3
+# WveaG8u6M6yzJfx4xq7rbrgrKgykRI5A8JhKGQZ71cDphSwsQIc7kU3i5vahxEnh
+# KKjdp7Dl3oorhAEfCo9IGm7rd8wMAoLD31j1X6Sz/7hxcJbRDVB0GjksB2i0veHs
+# pHScx0glFqYjuKdXorgQCIWGkLHt9VMaH44iYzQuBDpx78vlm6Ia7FgtLSA4jDcY
+# lWnQrHq06L2H5fm6HIm7vfgo/fBYxWbxMieltvqYCET74fR2xqp7/P7kRfXfXsyj
+# JLFGg9P+S4jnLKdYrr7N1PI4Gbsr2a+81a4TCpHRUzLRpO15r5JGvRGdUA==
 # SIG # End signature block
