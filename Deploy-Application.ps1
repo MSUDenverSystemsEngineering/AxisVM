@@ -135,7 +135,7 @@ Try {
 		If (Test-Path "$envSystemDrive\AxisVM X4") {
 			Write-Log -Message "Deleting installation files..." -Source 'Pre-Installation' -LogType 'CMTrace'
 			Get-ChildItem -Path "$envSystemDrive\AxisVM X4" -Recurse | Remove-Item -force -recurse
-			Remove-Item "$envSystemDrive\AxisVM X4 -Force"
+			Remove-Item "$envSystemDrive\AxisVM X4" -Force
 		}
 		Else {
 			Write-Log -Message "AxisVM X4 installation files not detected." -Source 'Pre-Installation' -LogType 'CMTrace'
@@ -149,7 +149,7 @@ Try {
 		If (Test-Path "$envSystemDrive\AxisVM X5") {
 			Write-Log -Message "Deleting installation files..." -Source 'Pre-Installation' -LogType 'CMTrace'
 			Get-ChildItem -Path "$envSystemDrive\AxisVM X5" -Recurse | Remove-Item -force -recurse
-			Remove-Item "$envSystemDrive\AxisVM X5 -Force"
+			Remove-Item "$envSystemDrive\AxisVM X5" -Force
 		}
 		Else {
 			Write-Log -Message "AxisVM X5 installation files not detected." -Source 'Pre-Installation' -LogType 'CMTrace'
@@ -238,7 +238,7 @@ Try {
 		If (Test-Path "$envSystemDrive\AxisVM X6") {
 			Write-Log -Message "Deleting installation files..." -Source 'Uninstallation' -LogType 'CMTrace'
 			Get-ChildItem -Path "$envSystemDrive\AxisVM X6" -Recurse | Remove-Item -force -recurse
-			Remove-Item "$envSystemDrive\AxisVM X6 -Force"
+			Remove-Item "$envSystemDrive\AxisVM X6" -Force
 		}
 		Else {
 			Write-Log -Message "AxisVM X6 installation files not detected." -Source 'Uninstallation' -LogType 'CMTrace'
@@ -304,8 +304,8 @@ Catch {
 # SIG # Begin signature block
 # MIIU9wYJKoZIhvcNAQcCoIIU6DCCFOQCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUBM3PUettkl6cCGs0LuUAvGoR
-# waCgghHXMIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU0ONsT40JRAhS5nedcbo2tYG/
+# WNugghHXMIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
 # AQwFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UECAwSR3JlYXRlciBNYW5jaGVzdGVy
 # MRAwDgYDVQQHDAdTYWxmb3JkMRowGAYDVQQKDBFDb21vZG8gQ0EgTGltaXRlZDEh
 # MB8GA1UEAwwYQUFBIENlcnRpZmljYXRlIFNlcnZpY2VzMB4XDTIxMDUyNTAwMDAw
@@ -405,13 +405,13 @@ Catch {
 # ZSBTaWduaW5nIENBIFIzNgIRAKVN33D73PFMVIK48rFyyjEwCQYFKw4DAhoFAKB4
 # MBgGCisGAQQBgjcCAQwxCjAIoAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQB
 # gjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkE
-# MRYEFH+KphTt1lL5jhNaA8U9/ZEyXI/1MA0GCSqGSIb3DQEBAQUABIIBgE6Gv5yB
-# 6YagqJZy+YE4ISCJcsJFwMw7BlpmZMwZ7ovWEmXGlWuDFl6E/4TWgaCyKLtGOb9N
-# OnY68myh5/fzZjqfdwgEQGPmqRl8r6o0u2xakg/ZfjyxGK+EGmin8IkjI+7SQMiz
-# uvO0APA0vD0O5RrXz5tb6UVsSgW1zuYroLJlocly584/OEDKyyjqUygouVneBIa3
-# WveaG8u6M6yzJfx4xq7rbrgrKgykRI5A8JhKGQZ71cDphSwsQIc7kU3i5vahxEnh
-# KKjdp7Dl3oorhAEfCo9IGm7rd8wMAoLD31j1X6Sz/7hxcJbRDVB0GjksB2i0veHs
-# pHScx0glFqYjuKdXorgQCIWGkLHt9VMaH44iYzQuBDpx78vlm6Ia7FgtLSA4jDcY
-# lWnQrHq06L2H5fm6HIm7vfgo/fBYxWbxMieltvqYCET74fR2xqp7/P7kRfXfXsyj
-# JLFGg9P+S4jnLKdYrr7N1PI4Gbsr2a+81a4TCpHRUzLRpO15r5JGvRGdUA==
+# MRYEFJ2/PfglQGsgT/voKE7h2+3Yd5WWMA0GCSqGSIb3DQEBAQUABIIBgF2nzVhI
+# Xun9lkdagX6KZshdJrWt27j6Qffa1t13cnMJns3Xqa0RCbryYd/ngIP9JyMsg/Zy
+# b2QZ9kKBc07VQ6uxfnpUnunkgQQOg9AOTFchuSDBnhdcCfZ4ushtZip4MtePSqVd
+# wrw/wYduLh7UbJQfGF5YNSmXo0oixJSokYoq7hC0+Z4THdsVVIR5HDUtT8i/aiCv
+# fnZm0R77CSIZ88PffXX0mmB0rZzMoHYOq2ybUqDSfBFEnkIjHFYUmSrk2VWnhTI/
+# Sk6n935pZGRSdhaQY++7VkPRiToLI56q56pMNasA4vC4ujZySHKwpCQ/B4sl5BfA
+# aArGwJgX/tj11dAWn8Ensd4Ma4TJiOXpil1tP3Scp2UQFiHRUR2tM/zuaL1x6jTq
+# siGfMRqfvuse8hrLEWLM42vUjHIOdHeRJxg2bPINeT6rzlHBb5KZqBcqC2w2zEMK
+# aKKEvUP4y/5U/ii5Y1RaNhN7Y8yikZwisYCx6EvwmvSmH8QsPw0huj0XAQ==
 # SIG # End signature block
